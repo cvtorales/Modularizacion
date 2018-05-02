@@ -8,10 +8,11 @@
 
 	/*  equalizer.c   */
 
+	#include <stdio.h>
 	#include "main.h"
 	#include "equalizer.h"
 
-	status_t calculate_capacitor_1(double * c1, double l, double r1, double r2)
+	status_t calculate_capacitor_c1(double l, double r1, double r2, double * c1)
 	{
 
 		if( c1 == NULL )
@@ -25,7 +26,7 @@
 		return OK;
 	}
 
-	status_t calculate_simulated_inductance(double *l, double quality_factor, double r2, double f)
+	status_t calculate_simulated_inductance(double quality_factor, double r2, double f, double *l)
 	{
 		if( l == NULL )
 			return ERROR_NULL_POINTER;
@@ -35,7 +36,7 @@
 		return OK;
 	}
 
-	status_t calculate_capacitor_2(double * c2, double l, double f)
+	status_t calculate_capacitor_c2(double l, double f, double * c2)
 	{
 
 		if( c2 == NULL )

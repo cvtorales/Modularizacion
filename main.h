@@ -4,8 +4,8 @@
 
 
 
-	#ifndef MAIN_H
-	#define MAIN_H
+	#ifndef MAIN__H
+	#define MAIN__H
 
 	typedef enum {
 					OK =0,
@@ -14,8 +14,8 @@
 					ERROR_INVALID_RESISTOR_VALUES,
 
 
-					ERROR_CALCULATE_SIMULATED_INDUCTANCE,
-					ERROR_CALCULATE_CAPACITOR_VALUE
+					ERROR_CALCULATING_SIMULATED_INDUCTANCE,
+					ERROR_CALCULATING_CAPACITOR_VALUE
 				 }status_t;
 
 

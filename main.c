@@ -7,10 +7,8 @@
 
 	#include <stdio.h>
 	#include <stdlib.h>
-	#include "magnitudes.c"
 	#include "main.h"
-	#include "equalizer.c"
-	#include "common.c"
+	#include "common.h"
 
 	int main(void)
 	{

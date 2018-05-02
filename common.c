@@ -6,9 +6,11 @@
 
 
 	/* common.c */
-	
+	#include <stdio.h>
+	#include <stdlib.h>
 	#include "main.h"
 	#include "common.h"
+	#include "equalizer.h"
 
 
 	status_t print_main_menu(void)
@@ -65,24 +67,24 @@
 
 
 
-		if(calculate_simulated_inductance( &l, q, r2, freq) != OK)
+		if(calculate_simulated_inductance(q, r2, freq, &l) != OK)
 		{
 			fprintf(stderr, "%s\n", MSG_ERROR_CALCULATE_SIMULATED_INDUCTANCE);
-			return ERROR_CALCULATE_SIMULATED_INDUCTANCE;
+			return ERROR_CALCULATING_SIMULATED_INDUCTANCE;
 		}
 
-		if(calculate_capacitor_1( &c1, l, r1, r2) != OK)
+		if(calculate_capacitor_c1(l, r1, r2, &c1) != OK)
 		{
 			fprintf(stderr, "%s\n", MSG_ERROR_CALCULATE_CAPACITOR_VALUE);
-			return ERROR_CALCULATE_CAPACITOR_VALUE;
+			return ERROR_CALCULATING_CAPACITOR_VALUE;
 		}
 
 
-		     print_resistor_value( r1, MSG_R1_VALUE );
-		     print_resistor_value( r2, MSG_R2_VALUE );
-		     print_central_frequency_value( freq, MSG_CENTRAL_FREQUENCY_VALUE );
-		     print_quality_factor_value( q, MSG_QUALITY_FACTOR_VALUE);
-		     print_capacitor_value( c1, MSG_CAPACITANCE_C1_VALUE);
+		     print_resistor( r1, MSG_R1_VALUE );
+		     print_resistor( r2, MSG_R2_VALUE );
+		     print_central_frequency( freq, MSG_CENTRAL_FREQUENCY_VALUE );
+		     print_quality_factor( q, MSG_QUALITY_FACTOR_VALUE);
+		     print_capacitor( c1, MSG_CAPACITANCE_C1_VALUE);
 
 
 
@@ -109,23 +111,23 @@
 			return ERROR_INVALID_DATA;
 		}	
 
-		if(calculate_simulated_inductance( &l, q, r2, freq) != OK)
+		if(calculate_simulated_inductance(q, r2, freq, &l) != OK)
 		{
 			fprintf(stderr, "%s\n", MSG_ERROR_CALCULATE_SIMULATED_INDUCTANCE);
-			return ERROR_CALCULATE_SIMULATED_INDUCTANCE;
+			return ERROR_CALCULATING_SIMULATED_INDUCTANCE;
 		}
 
-		if(calculate_capacitor_2( &c2, l, freq) != OK )
+		if(calculate_capacitor_c2(l, freq, &c2) != OK )
 		{
 			fprintf(stderr, "%s\n", MSG_ERROR_CALCULATE_CAPACITOR_VALUE);
-			return ERROR_CALCULATE_CAPACITOR_VALUE;
+			return ERROR_CALCULATING_CAPACITOR_VALUE;
 		}
 
 
-	     print_resistor_value( r2, MSG_R2_VALUE );
-	     print_central_frequency_value( freq, MSG_CENTRAL_FREQUENCY_VALUE);
-	     print_quality_factor_value( q, MSG_QUALITY_FACTOR_VALUE);
-	     print_capacitor_value( c2, MSG_CAPACITANCE_C2_VALUE);
+	     print_resistor( r2, MSG_R2_VALUE );
+	     print_central_frequency( freq, MSG_CENTRAL_FREQUENCY_VALUE);
+	     print_quality_factor( q, MSG_QUALITY_FACTOR_VALUE);
+	     print_capacitor( c2, MSG_CAPACITANCE_C2_VALUE);
 
 		return OK;
 	}

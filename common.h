@@ -4,6 +4,7 @@
 
 
 	/* common.h */
+	#include "magnitudes.h"
 
 	/******************* MENSAJES PARA INGRESO DE DATOS ******************/
 	#define MSG_ENTER_R1_VALUE "Ingrese el valor resistencia 1 en "
